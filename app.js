@@ -1,4 +1,6 @@
 const express = require('express');
+const port = process.env.PORT || 3000;
+const app = express();
 
 const multer = require('multer')
 const getExt = (mimeType)=>{
@@ -19,11 +21,8 @@ const storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
-const app = express();
 const Post = require('./api/models/posts');
 const postsData = new Post();
-
-const port = 3000
 
 app.use(express.json())
 app.use((req, res, next) => {
