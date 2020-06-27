@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/posts', (req, res) => {
-    res.send(postsData.get())
+    res.status(200).send(postsData.get())
 })
 
 app.get('/api/posts/:post_id', (req, res) => {
